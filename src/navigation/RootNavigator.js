@@ -4,6 +4,7 @@ import SplashScreen from "../screen/splash/SplashScreen";
 import { useEffect, useState } from "react";
 import UnAuthStack from "./stack/UnAuthStack";
 import AuthStack from "./stack/AuthStack";
+import { useAppStore } from "../store/appStore";
 
 
 const Stack = createNativeStackNavigator();
@@ -11,15 +12,12 @@ const Stack = createNativeStackNavigator();
 
 const RootNavigator = () => {
 
-    const [isLoading, setIsLoading] = useState(true)
-    const [token, setToken] = useState(null)
-
+    const { isLoading, token, setToken, setIsLoading } = useAppStore((state) => state)
     useEffect(() => {
-        setTimeout(() => {
-            setIsLoading(false)
-        }, 1300)
-
+        setIsLoading(true)
     }, [])
+
+    
     return (
         <NavigationContainer>
             {
