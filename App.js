@@ -1,6 +1,10 @@
 import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import Toast from 'react-native-toast-message';
+import toastConfig from './src/utils/toastConfig';
+import { getRequest } from './src/api/apiClient';
+import { useEffect } from 'react';
 
 export default function App() {
   const [loaded, error] = useFonts({
@@ -9,10 +13,13 @@ export default function App() {
   });
 
 
+
   return (
     <View style={styles.container}>
       <Text style={{ fontFamily: 'RobotoMono-Regular' }}>Open up App.js to start working on your app!</Text>
+    
       <StatusBar style="auto" />
+      <Toast visibilityTime={1000} config={toastConfig} />
     </View>
   );
 }
