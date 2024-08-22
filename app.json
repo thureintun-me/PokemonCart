@@ -22,6 +22,18 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Inter-Regular.ttf",
+            "./assets/fonts/Matemasie-Regular.ttf",
+            "./assets/fonts/RobotoMono-Regular.ttf"
+          ]
+        }
+      ]
+    ]
   }
 }
