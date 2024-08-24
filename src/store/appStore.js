@@ -9,8 +9,10 @@ export const useAppStore = create(
         (set, get) => ({
             isLoading: false,
             token: 0,
+            selectedCard : [],
             setToken: (val) => set({ token: val }),
             setIsLoading: (val) => set({ isLoading: val }),
+            setSelectedCard: (val) => set({ selectedCard: val }),
         }),
         {
             name: 'app-storage', // name of the item in the storage (must be unique)

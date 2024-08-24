@@ -13,7 +13,7 @@ axios.defaults.baseURL = process.env.EXPO_PUBLIC_API_URL;
 // Add a request interceptor
 axios.interceptors.request.use(function (config) {
     // Do something before request is sent
-    console.log("confi", config.url)
+    config.headers['x-api-key'] = process.env.EXPO_PUBLIC_API_KEY;
     return config;
 
 }, function (error) {
@@ -30,6 +30,7 @@ axios.interceptors.response.use(function (response) {
         text1: 'Success',
         text2: response.status
     });
+    
     return response;
 }, function (error) {
     console.log("err", error)

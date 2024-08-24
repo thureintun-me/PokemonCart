@@ -7,6 +7,9 @@ import { getRequest } from './src/api/apiClient';
 import { useEffect } from 'react';
 import SplashScreen from './src/screen/splash/SplashScreen';
 import RootNavigator from './src/navigation/RootNavigator';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient()
 
 export default function App() {
   const [loaded, error] = useFonts({
@@ -16,12 +19,16 @@ export default function App() {
 
 
 
+
   return (
-    <>
-      <RootNavigator />
-      <StatusBar style="auto" />
-      <Toast visibilityTime={1000} config={toastConfig} />
-    </>
+   
+      <QueryClientProvider client={queryClient}>
+        <RootNavigator />
+        <StatusBar style="auto" />
+        <Toast visibilityTime={1000} config={toastConfig} />
+      </QueryClientProvider>
+   
+
   );
 }
 
